@@ -1,0 +1,165 @@
+library(vcfR)
+library(SNPfiltR)
+library(introgress)
+library(adegenet)
+library(ggplot2)
+library(StAMPP)
+
+vcf<-read.vcfR("/Users/devder/Dropbox/Emily_Towhees/towhee.analysis/Pipmac/filtered SNP files/Pipmac2020.filtered.vcf")
+#read in locality info for samples
+locs<-read.csv("~/Downloads/Towhee.genetic.samples.csv", header=T)
+head(vcf@fix)
+vcf@gt[1:10,1:10]
+#check that sampling IDs in text file match sample IDs in the vcf
+locs$sample.id<-paste0(locs$Collection,locs$ID)
+colnames(vcf@gt)[-1] %in% locs$sample.id
+#reorder locs df to match order of vcf
+locs<-locs[order(match(locs$sample.id, colnames(vcf@gt)[-1])), ]
+
+
+#convert vcfr to genlight
+gen<- vcfR2genlight(vcf)
+#make pca
+pca<-glPca(gen, nf=6)
+
+#pull pca scores out of df
+pca.scores<-as.data.frame(pca$scores)
+pca.scores$group<-locs$SiteID
+
+#ggplot color by species
+ggplot(pca.scores, aes(x=PC1, y=PC2, color=group)) +
+  geom_point(cex = 4, alpha=.75)+
+  theme_classic()+
+  theme(legend.position = "bottom", legend.key.size = unit(0, 'cm'),
+        legend.title = element_text(size=8), legend.text = element_text(size=6.5))
+
+### Calculate Nei's distances between individuals/pops
+pop(gen)<-locs$SiteID
+sample.div <- stamppNeisD(gen, pop = FALSE)
+pop.div <- stamppNeisD(gen, pop = TRUE)
+#lilac NJ tree
+plot(nj(sample.div), type = "unrooted", cex = .65)
+#export for splitstree
+stamppPhylip(distance.mat=sample.div, file="~/Downloads/towhee.splits.txt")
+stamppPhylip(distance.mat=pop.div, file="~/Downloads/towhee.pop.splits.txt")
+#very shallow divergence among samples and pops
+stamppFst(gen, nboots = 1, percent = 95, nclusters = 1)
+
+#check out missing data
+missing.by.snp(vcf)
+#probably worth doing some cursory filtering for missing data
+
+#calculate missingness per sample
+mat<-extract.gt(vcf)
+miss<-c()
+for (i in 1:ncol(mat)){
+  miss[i]<-sum(is.na(mat[,i]))
+}
+locs$miss<-miss
+locs #elevated number of missing genotypes in toepad samples, as expected
+
+#remove loci that aren't biallelic
+mat<-mat[nchar(vcf@fix[,"ALT"]) == 1,]
+dim(mat)
+#identify SNPs that are fixed away from LA
+conv.mat<-mat
+conv.mat[1:5,1:5]
+conv.mat[conv.mat == "0/0"]<-0
+conv.mat[conv.mat == "0/1"]<-1
+conv.mat[conv.mat == "1/1"]<-2
+conv.mat<-as.data.frame(conv.mat)
+#convert to numeric
+for (i in 1:ncol(conv.mat)){
+  conv.mat[,i]<-as.numeric(as.character(conv.mat[,i]))
+}
+
+#show colnames to verify you're subsetting correctly
+colnames(conv.mat) 
+#calc AF
+jal.af<-(rowSums(conv.mat[,c(7:10)], na.rm=T)/(rowSums(is.na(conv.mat[,c(7:10)]) == FALSE)))/2
+pueb.af<-(rowSums(conv.mat[,c(1,2,18,19)], na.rm=T)/(rowSums(is.na(conv.mat[,c(1,2,18,19)]) == FALSE)))/2
+
+#find fixed SNPs
+diff<-abs(jal.af - pueb.af)
+table(is.na(diff))
+#how many SNPs are fixed
+table(is.na(diff) == FALSE & diff == 1)
+
+#list some fixed SNPs
+head(vcf@fix[,1][is.na(diff) == FALSE & diff == 1])
+
+#subsample original matrix to only fixed diff SNPs
+gen.mat<-mat[is.na(diff) == FALSE & diff == 1,]
+dim(gen.mat)
+#subsample matrix converted for AF calcs to only fixed SNPS
+conv.mat<-conv.mat[is.na(diff) == FALSE & diff == 1,]
+dim(conv.mat)
+#write a logical test to convert alleles so that a single number represents one parental ancestry
+for (i in 1:nrow(gen.mat)){
+  #if 1 is the red crowned allele (e.g. absent in lilacs 3-6)
+  if((sum(conv.mat[i,c(7:10)], na.rm=T)/(sum(is.na(conv.mat[i,c(7:10)]) == FALSE)))/2 == 0){
+    #swap all '0/0' cells with '2/2'
+    gen.mat[i,][gen.mat[i,] == "0/0"]<-"2/2"
+    #swap all '1/1' cells with '0/0'
+    gen.mat[i,][gen.mat[i,] == "1/1"]<-"0/0"
+    #finally convert all '2/2' cells (originally 0/0) into '1/1'
+    gen.mat[i,][gen.mat[i,] == "2/2"]<-"1/1"
+    #no need to touch hets
+  }
+}
+
+#convert R class NAs to the string "NA/NA"
+gen.mat[is.na(gen.mat) == TRUE]<-"NA/NA"
+
+#if it worked correctly this should be only missing or '1/1'
+table(gen.mat[,7])
+table(gen.mat[,8])
+table(gen.mat[,9])
+table(gen.mat[,10])
+
+#make locus info df
+locus.info<-data.frame(locus=vcf@fix[vcf@fix[,3] %in% rownames(gen.mat),1],
+                       type=rep("C", times=nrow(gen.mat)),
+                       lg=gsub("uce-","",vcf@fix[vcf@fix[,3] %in% rownames(gen.mat),1]),
+                       marker.pos=gsub("SNP_","",rownames(gen.mat)))
+#make linkage group numeric
+locus.info$lg<-as.numeric(as.character(locus.info$lg))
+locus.info$marker.pos<-as.numeric(as.character(locus.info$marker.pos))
+
+#we now have a gt matrix in proper format for introgress
+#convert genotype data into a matrix of allele counts
+count.matrix<-prepare.data(admix.gen=gen.mat, loci.data=locus.info,
+                           parental1="1",parental2="0", pop.id=F,
+                           ind.id=F, fixed=T)
+
+#estimate hybrid index values
+hi.index.sim<-est.h(introgress.data=count.matrix,loci.data=locus.info,
+                    fixed=T, p1.allele="1", p2.allele="0")
+
+#locus.info$locus<-rep("", times=nrow(locus.info))
+#LociDataSim1$lg<-c(1:110)
+mk.image(introgress.data=count.matrix, loci.data=locus.info,
+         marker.order=NULL,hi.index=hi.index.sim, ylab.image="Individuals",
+         xlab.h="Red-crowned ancestry", pdf=F,
+         col.image=c("red","green","blue"))
+
+#calculate mean heterozygosity
+het<-calc.intersp.het(introgress.data=count.matrix)
+dev.off()
+#make triangle plot
+plot(x=hi.index.sim$h, y=het, bg=rgb(0,0,0,alpha=0.3), pch=21, cex=2, col="black",
+     xlab="Hybrid Index", ylab="Interspecific heterozygosity",
+     ylim=c(0,1))
+segments(x0 =0, y0 =0, x1 =.5, y1 =1)
+segments(x0 =1, y0 =0, x1 =.5, y1 =1)
+
+#make triangle plot colored by locality
+plot(x=hi.index.sim$h, y=het, bg=rgb(0,0,0,alpha=0.3), pch=21, cex=2, col=as.factor(locs$SiteID),
+     xlab="Hybrid Index", ylab="Interspecific heterozygosity",
+     ylim=c(0,1))
+segments(x0 =0, y0 =0, x1 =.5, y1 =1)
+segments(x0 =1, y0 =0, x1 =.5, y1 =1)
+
+
+
+
