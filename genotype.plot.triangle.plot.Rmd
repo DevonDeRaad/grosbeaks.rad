@@ -5,7 +5,7 @@ date: "9/3/2021"
 output: html_document
 ---
 
-```{r}
+```{r, results='hide', message=FALSE}
 #install and load necessary packages
 #devtools::install_github("DevonDeRaad/SNPfiltR")
 library(SNPfiltR)
@@ -14,9 +14,7 @@ library(StAMPP)
 library(adegenet)
 library(ggplot2)
 library(introgress)
-```
 
-```{r}
 #read vcfR
 vcfR<-read.vcfR("~/Desktop/grosbeaks/grosbeaks.rad/filtered.vcf.gz")
 
@@ -93,7 +91,7 @@ for (i in 1:ncol(conv.mat)){
 }
 
 #show colnames to verify you're subsetting correctly
-colnames(conv.mat) 
+#colnames(conv.mat) 
 #calc AF
 mel.af<-(rowSums(conv.mat[,c(2,7,10,15,24,75,78,88,99,128,142)], na.rm=T)/(rowSums(is.na(conv.mat[,c(2,7,10,15,24,75,78,88,99,128,142)]) == FALSE)))/2
 lud.af<-(rowSums(conv.mat[,c(139,122,92,87,50)], na.rm=T)/(rowSums(is.na(conv.mat[,c(139,122,92,87,50)]) == FALSE)))/2
@@ -156,14 +154,6 @@ hi.index.sim<-est.h(introgress.data=count.matrix,loci.data=locus.info,
 hi.index.sim$sample<-locs$sample
 hi.index.sim$state<-locs$state
 hi.index.sim$sex<-locs$sex
-
-#locus.info$locus<-rep("", times=nrow(locus.info))
-#LociDataSim1$lg<-c(1:110)
-mk.image(introgress.data=count.matrix, loci.data=locus.info,
-         marker.order=NULL,hi.index=hi.index.sim, ylab.image="Individuals",
-         xlab.h="Red-crowned ancestry", pdf=F,
-         col.image=c("red","green","blue"))
-
 ```
 
 ```{r}
@@ -185,6 +175,15 @@ plot(x=hi.index.sim$h, y=het, bg=rgb(0,0,0,alpha=0.3), pch=21, cex=2, col=as.fac
 segments(x0 =0, y0 =0, x1 =.5, y1 =1)
 segments(x0 =1, y0 =0, x1 =.5, y1 =1)
 #blue indicates from the SD transect, red indicates Kansas/missouri
+
+```
+```{r}
+#locus.info$locus<-rep("", times=nrow(locus.info))
+#LociDataSim1$lg<-c(1:110)
+mk.image(introgress.data=count.matrix, loci.data=locus.info,
+         marker.order=NULL,hi.index=hi.index.sim, ylab.image="Individuals",
+         xlab.h="Red-crowned ancestry", pdf=F,
+         col.image=c("red","green","blue"))
 
 ```
 

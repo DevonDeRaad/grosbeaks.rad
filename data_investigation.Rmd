@@ -5,22 +5,23 @@ date: "9/2/2021"
 output: html_document
 ---
 
-```{r}
+```{r, results='hide', message=FALSE}
 #install and load necessary packages
 #devtools::install_github("DevonDeRaad/SNPfiltR")
 library(SNPfiltR)
 library(vcfR)
 library(StAMPP)
 library(adegenet)
-```
 
-```{r}
 #read in vcf as vcfR
 vcfR <- read.vcfR("~/Desktop/grosbeaks/m3.vcf")
 
 #generate popmap file. Two column popmap with the same format as stacks, and the columns must be named 'id' and 'pop'
 popmap<-data.frame(id=colnames(vcfR@gt)[2:length(colnames(vcfR@gt))],pop=substr(colnames(vcfR@gt)[2:length(colnames(vcfR@gt))], 3,8))
 
+```
+
+```{r}
 #hard filter to minimum depth of 5, and minimum genotype quality of 30
 vcfR<-hard_filter(vcfR=vcfR, depth = 5, gq = 30)
 ```
@@ -41,10 +42,12 @@ vcfR<-max_depth(vcfR, maxdepth = 100)
 vcfR
 ```
 
-```{r}
+```{r, results='hide'}
 #run function to visualize missing data per sample
 missing_by_sample(vcfR=vcfR, popmap = popmap)
+```
 
+```{r}
 #set missing data cutoff for individual samples
 vcfR.95<-missing_by_sample(vcfR=vcfR, cutoff = .95)
 ```
@@ -95,13 +98,12 @@ popmap.95<-popmap[popmap$id %in% colnames(vcfR.95@gt),]
 missing_by_snp(vcfR.95)
 ```
 
-```{r}
+```{r, results='hide'}
 #visualize the effect of a few reasonable potential missing data cutoffs on clustering patterns 
 g<-assess_missing_data(vcfR=vcfR.95, popmap = popmap.95, thresholds= c(.85,.9,.95), iterations = 3000)
 ```
 
-```{r}
-
+```{r, results='hide'}
 vcfR.95.90<-missing_by_snp(vcfR.95, cutoff = .90)
 vcfR.95.90
 
