@@ -1,5 +1,0 @@
-"0","write.vcf(f, ""~/Desktop/grosbeaks/filtered.unlinked.vcf.gz"")
-"
-"2","Error in write.vcf(f, ""~/Desktop/grosbeaks/filtered.unlinked.vcf.gz"") : 
-  'x' should be of class ""loci""
-"

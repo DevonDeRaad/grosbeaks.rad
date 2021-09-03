@@ -1,65 +1,84 @@
-library(vcfR)
+---
+title: "basic_clustering"
+author: "Devon DeRaad"
+date: "9/3/2021"
+output: html_document
+---
+
+```{r}
+#install and load necessary packages
+#devtools::install_github("DevonDeRaad/SNPfiltR")
 library(SNPfiltR)
-library(introgress)
+library(vcfR)
+library(StAMPP)
 library(adegenet)
 library(ggplot2)
-library(StAMPP)
+library(introgress)
+```
 
-vcf<-read.vcfR("/Users/devder/Dropbox/Emily_Towhees/towhee.analysis/Pipmac/filtered SNP files/Pipmac2020.filtered.vcf")
-#read in locality info for samples
-locs<-read.csv("~/Downloads/Towhee.genetic.samples.csv", header=T)
-head(vcf@fix)
-vcf@gt[1:10,1:10]
-#check that sampling IDs in text file match sample IDs in the vcf
-locs$sample.id<-paste0(locs$Collection,locs$ID)
-colnames(vcf@gt)[-1] %in% locs$sample.id
-#reorder locs df to match order of vcf
-locs<-locs[order(match(locs$sample.id, colnames(vcf@gt)[-1])), ]
+```{r}
+#read vcfR
+vcfR<-read.vcfR("~/Desktop/grosbeaks/grosbeaks.rad/filtered.vcf.gz")
 
+#read locs
+locs<-read.csv("~/Desktop/grosbeaks/grosbeaks.rad/grosbeak.sampling.scheme.csv")
+#locs$species<-sub("._","",locs$sample)
+#locs$species<-sub("_.*","",locs$species)
+#write.csv(locs, "~/Desktop/grosbeaks/grosbeaks.rad/grosbeak.sampling.scheme.csv")
+#retain only retained samples
+locs<-locs[locs$sample %in% colnames(vcfR@gt)[-1],]
+#match order between samples in vcf and locs
+locs<-locs[match(colnames(vcfR@gt)[-1],locs$sample),]
+```
 
+```{r}
 #convert vcfr to genlight
-gen<- vcfR2genlight(vcf)
+gen<- vcfR2genlight(vcfR)
 #make pca
 pca<-glPca(gen, nf=6)
 
 #pull pca scores out of df
 pca.scores<-as.data.frame(pca$scores)
-pca.scores$group<-locs$SiteID
+#match order
+pca.scores$sex<-locs$sex
+pca.scores$state<-locs$state
+pca.scores$species<-locs$species
 
 #ggplot color by species
-ggplot(pca.scores, aes(x=PC1, y=PC2, color=group)) +
+ggplot(pca.scores, aes(x=PC1, y=PC2, color=species)) +
   geom_point(cex = 4, alpha=.75)+
   theme_classic()+
   theme(legend.position = "bottom", legend.key.size = unit(0, 'cm'),
         legend.title = element_text(size=8), legend.text = element_text(size=6.5))
 
-### Calculate Nei's distances between individuals/pops
-pop(gen)<-locs$SiteID
-sample.div <- stamppNeisD(gen, pop = FALSE)
-pop.div <- stamppNeisD(gen, pop = TRUE)
-#lilac NJ tree
-plot(nj(sample.div), type = "unrooted", cex = .65)
-#export for splitstree
-stamppPhylip(distance.mat=sample.div, file="~/Downloads/towhee.splits.txt")
-stamppPhylip(distance.mat=pop.div, file="~/Downloads/towhee.pop.splits.txt")
-#very shallow divergence among samples and pops
-stamppFst(gen, nboots = 1, percent = 95, nclusters = 1)
+#ggplot color by sex
+ggplot(pca.scores, aes(x=PC1, y=PC2, color=sex)) +
+  geom_point(cex = 4, alpha=.75)+
+  theme_classic()+
+  theme(legend.position = "bottom", legend.key.size = unit(0, 'cm'),
+        legend.title = element_text(size=8), legend.text = element_text(size=6.5))
 
-#check out missing data
-missing.by.snp(vcf)
-#probably worth doing some cursory filtering for missing data
+#ggplot color by state
+ggplot(pca.scores, aes(x=PC1, y=PC2, color=state)) +
+  geom_point(cex = 4, alpha=.75)+
+  theme_classic()+
+  theme(legend.position = "bottom", legend.key.size = unit(0, 'cm'),
+        legend.title = element_text(size=8), legend.text = element_text(size=6.5))
 
+```
+
+```{r}
 #calculate missingness per sample
-mat<-extract.gt(vcf)
+mat<-extract.gt(vcfR)
 miss<-c()
 for (i in 1:ncol(mat)){
   miss[i]<-sum(is.na(mat[,i]))
 }
 locs$miss<-miss
-locs #elevated number of missing genotypes in toepad samples, as expected
+#locs 
 
 #remove loci that aren't biallelic
-mat<-mat[nchar(vcf@fix[,"ALT"]) == 1,]
+mat<-mat[nchar(vcfR@fix[,"ALT"]) == 1,]
 dim(mat)
 #identify SNPs that are fixed away from LA
 conv.mat<-mat
@@ -76,17 +95,17 @@ for (i in 1:ncol(conv.mat)){
 #show colnames to verify you're subsetting correctly
 colnames(conv.mat) 
 #calc AF
-jal.af<-(rowSums(conv.mat[,c(7:10)], na.rm=T)/(rowSums(is.na(conv.mat[,c(7:10)]) == FALSE)))/2
-pueb.af<-(rowSums(conv.mat[,c(1,2,18,19)], na.rm=T)/(rowSums(is.na(conv.mat[,c(1,2,18,19)]) == FALSE)))/2
+mel.af<-(rowSums(conv.mat[,c(2,7,10,15,24,75,78,88,99,128,142)], na.rm=T)/(rowSums(is.na(conv.mat[,c(2,7,10,15,24,75,78,88,99,128,142)]) == FALSE)))/2
+lud.af<-(rowSums(conv.mat[,c(139,122,92,87,50)], na.rm=T)/(rowSums(is.na(conv.mat[,c(139,122,92,87,50)]) == FALSE)))/2
 
 #find fixed SNPs
-diff<-abs(jal.af - pueb.af)
+diff<-abs(mel.af - lud.af)
 table(is.na(diff))
 #how many SNPs are fixed
 table(is.na(diff) == FALSE & diff == 1)
 
 #list some fixed SNPs
-head(vcf@fix[,1][is.na(diff) == FALSE & diff == 1])
+head(vcfR@fix[,1][is.na(diff) == FALSE & diff == 1])
 
 #subsample original matrix to only fixed diff SNPs
 gen.mat<-mat[is.na(diff) == FALSE & diff == 1,]
@@ -96,8 +115,8 @@ conv.mat<-conv.mat[is.na(diff) == FALSE & diff == 1,]
 dim(conv.mat)
 #write a logical test to convert alleles so that a single number represents one parental ancestry
 for (i in 1:nrow(gen.mat)){
-  #if 1 is the red crowned allele (e.g. absent in lilacs 3-6)
-  if((sum(conv.mat[i,c(7:10)], na.rm=T)/(sum(is.na(conv.mat[i,c(7:10)]) == FALSE)))/2 == 0){
+  #if 1 is the melano allele
+  if((sum(conv.mat[i,c(2,7,10,15,24,75,78,88,99,128,142)], na.rm=T)/(sum(is.na(conv.mat[i,c(2,7,10,15,24,75,78,88,99,128,142)]) == FALSE)))/2 == 0){
     #swap all '0/0' cells with '2/2'
     gen.mat[i,][gen.mat[i,] == "0/0"]<-"2/2"
     #swap all '1/1' cells with '0/0'
@@ -113,15 +132,14 @@ gen.mat[is.na(gen.mat) == TRUE]<-"NA/NA"
 
 #if it worked correctly this should be only missing or '1/1'
 table(gen.mat[,7])
-table(gen.mat[,8])
-table(gen.mat[,9])
+table(gen.mat[,2])
 table(gen.mat[,10])
 
 #make locus info df
-locus.info<-data.frame(locus=vcf@fix[vcf@fix[,3] %in% rownames(gen.mat),1],
+locus.info<-data.frame(locus=rownames(gen.mat),
                        type=rep("C", times=nrow(gen.mat)),
-                       lg=gsub("uce-","",vcf@fix[vcf@fix[,3] %in% rownames(gen.mat),1]),
-                       marker.pos=gsub("SNP_","",rownames(gen.mat)))
+                       lg=gsub("_.*","",rownames(gen.mat)),
+                       marker.pos=gsub(".*_","",rownames(gen.mat)))
 #make linkage group numeric
 locus.info$lg<-as.numeric(as.character(locus.info$lg))
 locus.info$marker.pos<-as.numeric(as.character(locus.info$marker.pos))
@@ -135,6 +153,9 @@ count.matrix<-prepare.data(admix.gen=gen.mat, loci.data=locus.info,
 #estimate hybrid index values
 hi.index.sim<-est.h(introgress.data=count.matrix,loci.data=locus.info,
                     fixed=T, p1.allele="1", p2.allele="0")
+hi.index.sim$sample<-locs$sample
+hi.index.sim$state<-locs$state
+hi.index.sim$sex<-locs$sex
 
 #locus.info$locus<-rep("", times=nrow(locus.info))
 #LociDataSim1$lg<-c(1:110)
@@ -143,23 +164,27 @@ mk.image(introgress.data=count.matrix, loci.data=locus.info,
          xlab.h="Red-crowned ancestry", pdf=F,
          col.image=c("red","green","blue"))
 
+```
+
+```{r}
 #calculate mean heterozygosity
 het<-calc.intersp.het(introgress.data=count.matrix)
-dev.off()
-#make triangle plot
-plot(x=hi.index.sim$h, y=het, bg=rgb(0,0,0,alpha=0.3), pch=21, cex=2, col="black",
+
+#make triangle plot colored by species
+plot(x=hi.index.sim$h, y=het, bg=rgb(0,0,0,alpha=0.3), pch=21, cex=2, col=as.factor(locs$species),
      xlab="Hybrid Index", ylab="Interspecific heterozygosity",
      ylim=c(0,1))
 segments(x0 =0, y0 =0, x1 =.5, y1 =1)
 segments(x0 =1, y0 =0, x1 =.5, y1 =1)
+#red = ludovicianus, green = melanocephalus, black = hybrid
 
-#make triangle plot colored by locality
-plot(x=hi.index.sim$h, y=het, bg=rgb(0,0,0,alpha=0.3), pch=21, cex=2, col=as.factor(locs$SiteID),
+#make triangle plot colored by species
+plot(x=hi.index.sim$h, y=het, bg=rgb(0,0,0,alpha=0.3), pch=21, cex=2, col=as.factor(locs$state),
      xlab="Hybrid Index", ylab="Interspecific heterozygosity",
      ylim=c(0,1))
 segments(x0 =0, y0 =0, x1 =.5, y1 =1)
 segments(x0 =1, y0 =0, x1 =.5, y1 =1)
+#blue indicates from the SD transect, red indicates Kansas/missouri
 
-
-
+```
 
