@@ -1,0 +1,155 @@
+id,sample,state,locality,lat,long,sex,species,mtDNA.type,location,bill.width,bill.length,tarsus,wing,nape,back,rump,flanks,breast.underwing.coverts,male.total,throat.breast.side of neck,yellow,streaking,female.total,phenotype,distance
+11998,P_ludovicianus_11998,Missouri,Kansas City 5007 Rockhill Road,39.0350862,-94.5757198,male,ludovicianus,,,,,,,,,,,,,,,,,,
+21721,P_ludovicianus_21721,Kansas,Kansas City 5009 Rockhill Road,39.0352778,-94.5744444,female,ludovicianus,,,,,,,,,,,,,,,,,,
+25286,P_ludovicianus_25286,Missouri,Kansas City 5009 Rockhill Road,39.0352778,-94.5744444,female,ludovicianus,,,,,,,,,,,,,,,,,,
+26595,P_ludovicianus_26595,Kansas,Kansas City 5009 Rockhill Road,39.0352778,-94.5744444,male,ludovicianus,,,,,,,,,,,,,,,,,,
+33988,P_ludovicianus_33988,Missouri,Kansas City 5009 Rockhill Road,39.0352778,-94.5744444,male,ludovicianus,,,,,,,,,,,,,,,,,,
+34776,P_ludovicianus_34776,Kansas,Johnson County Community College,38.924,-94.735,male,ludovicianus,,,,,,,,,,,,,,,,,,
+34779,P_ludovicianus_34779,Kansas,Johnson County Community College,38.924,-94.735,female,ludovicianus,,,,,,,,,,,,,,,,,,
+34782,P_ludovicianus_34782,Kansas,Johnson County Community College,38.924,-94.735,female,ludovicianus,,,,,,,,,,,,,,,,,,
+34830,P_ludovicianus_34830,Missouri,highway 159,40.054,-95.242,male,ludovicianus,,,,,,,,,,,,,,,,,,
+34890,P_melanocephalus_34890,Colorado,"Golden, 9327 Ute Drive",39.865498,-105.281311,female,melanocephalus,,,,,,,,,,,,,,,,,,
+39985,P_melanocephalus_39985,Colorado,"Mesa de Maya, 20 kilometers south and 27.2 kilometers west of Kim",37.086496,-103.621942,unknown,melanocephalus,,,,,,,,,,,,,,,,,,
+43110,P_melanocephalus_43110,Colorado,"Franktown, 751 Willow Lake Drive",39.370718,-104.78205,unknown,melanocephalus,,,,,,,,,,,,,,,,,,
+43276,P_melanocephalus_43276,Colorado,"Franktown, 751 Willow Lake Drive",39.370718,-104.78205,male,melanocephalus,,,,,,,,,,,,,,,,,,
+44346,P_melanocephalus_44346,Colorado,"Fort Collins, 4900 East Ridge Road",40.517791,-105.158097,unknown,melanocephalus,,,,,,,,,,,,,,,,,,
+44347,P_melanocephalus_44347,Colorado,"Fort Collins, 4900 East Ridge Road",40.517791,-105.158097,unknown,melanocephalus,,,,,,,,,,,,,,,,,,
+44471,P_melanocephalus_44471,Colorado,"Franktown, 636 Willow Lake Drive",39.368779,-104.775193,male,melanocephalus,,,,,,,,,,,,,,,,,,
+44651,P_melanocephalus_44651,South Dakota,"0.5 mile south of Spearfish, Mouth of Spearfish Canyon",44.46673,-103.85123,male,melanocephalus,1,Spearfish Canyon Lawrence Co.,9.49,13.32,21.77,102,2,2,2,2,4,12,,,,,PM,0
+44660,P_melanocephalus_44660,South Dakota,"Higgins Gulch, 1.5 miles southwest of Spearfish",44.4833,-103.9333,male,melanocephalus,1,Higgins Gulch Lawrence Co.,9.63,13.34,22.51,103,2,2,2,2,4,12,,,,,PM,0
+44666,P_melanocephalus_44666,South Dakota,"Spearfish Peak, 0.5 mile south of Spearfish",44.45248,-103.84325,male,melanocephalus,1,Spearfish Peak Lawrence Co.,10.09,12.16,22.25,104,2,2,2,2,4,12,,,,,PM,0
+44674,P_melanocephalus_44674,South Dakota,"Higgins Gulch, 1.5 miles southwest of Spearfish",44.4833,-103.9333,male,melanocephalus,1,Higgins Gulch Lawrence Co.,10.15,12.4,21.56,104,2,2,2,2,4,12,,,,,PM,0
+44676,P_melanocephalus_44676,South Dakota,"Higgins Gulch, 1.5 miles southwest of Spearfish",44.4833,-103.9333,male,melanocephalus,1,Higgins Gulch Lawrence Co.,9.82,13.44,21.92,105,2,2,2,2,4,12,,,,,PM,0
+44677,P_melanocephalus_44677,South Dakota,"Higgins Gulch, 1.5 miles southwest of Spearfish",44.4833,-103.9333,male,melanocephalus,1,Higgins Gulch Lawrence Co.,10.97,12.91,21.45,105,2,2,2,2,4,12,,,,,PM,0
+44678,P_melanocephalus_44678,South Dakota,"Higgins Gulch, 1.5 miles southwest of Spearfish",44.4833,-103.9333,male,melanocephalus,1,Higgins Gulch Lawrence Co.,10.55,13.85,21.73,105,2,2,2,2,4,12,,,,,PM,0
+44679,P_melanocephalus_44679,South Dakota,"Higgins Gulch, 1.5 miles southwest of Spearfish",44.4833,-103.9333,female,melanocephalus,1,Higgins Gulch Lawrence Co.,9.69,13.05,22.2,106,,,,,,,3,2,3,8,PM,0
+44680,P_melanocephalus_44680,South Dakota,"Higgins Gulch, 1.5 miles southwest of Spearfish",44.4833,-103.9333,male,melanocephalus,1,Higgins Gulch Lawrence Co.,9.58,12.7,21.39,104,2,2,2,2,4,12,,,,,PM,0
+44681,P_melanocephalus_44681,South Dakota,10 miles east of Interior,43.72741344,-101.6422757,male,melanocephalus,1,Interior,9.52,13.04,22.69,107,2,2,2,2,4,12,,,,,PM,195
+44683,P_melanocephalus_44683,South Dakota,5 miles south of Kadoka,43.74834574,-101.509235,male,melanocephalus,1,Kadoka,9.82,12.68,19.99,102,2,2,2,2,4,12,,,,,PM,206
+44684,P_melanocephalus_44684,South Dakota,5 miles south of Kadoka,43.74834574,-101.509235,male,melanocephalus,1,Kadoka,10.05,12.23,21.95,105,2,2,2,2,4,12,,,,,PM,206
+44685,P_melanocephalus_44685,South Dakota,4 miles southeast of Belvidere,43.79035232,-101.2163134,male,melanocephalus,1,Belvidere,10.59,13.62,19.62,108,2,2,2,2,4,12,,,,,PM,230
+44686,P_melanocephalus_44686,South Dakota,4 miles southeast of Belvidere,43.78955503,-101.2139186,male,melanocephalus,1,Belvidere,9.98,11.87,21.68,103,2,2,2,2,4,12,,,,,PM,230
+44687,P_melanocephalus_44687,South Dakota,4 miles southeast of Belvidere,43.78955503,-101.2139186,male,melanocephalus,1,Belvidere,10.17,13.01,20.87,104,2,2,2,2,4,12,,,,,PM,230
+44688,P_melanocephalus_44688,South Dakota,6 miles southeast of Stamford,43.79230798,-101.0204669,male,melanocephalus,,,10.45,13.3,22.55,103,2,2,2,2,4,12,,,,,PM,246
+44689,P_melanocephalus_44689,South Dakota,4 miles southeast of Stamford,43.85415863,-101.0256798,male,melanocephalus,1,Mark 7,9.96,11.97,20.31,103,2,2,2,2,4,12,,,,,PM,246
+44692,P_melanocephalus_44692,South Dakota,4 miles southeast of Stamford,43.85207037,-101.0235734,male,melanocephalus,1,Mark 8,9.92,12.7,21.47,98,2,2,2,2,4,12,,,,,PM,246
+44693,P_melanocephalus_44693,South Dakota,4 miels southwest of Oacoma,43.75444894,-99.50112336,male,melanocephalus,1,Mark 9,9.89,13.28,22.14,99,2,2,2,2,4,12,,,,,PM,378
+44694,P_melanocephalus_44694,South Dakota,4 miels southwest of Oacoma,43.72305946,-99.47074131,male,melanocephalus,1,Mark 10,10.1,12.56,20.38,104,2,2,2,2,4,12,,,,,PM,378
+44695,P_melanocephalus_44695,South Dakota,4 miels southwest of Oacoma,43.72571502,-99.47257385,male,melanocephalus,1,Mark 11,10.02,12.41,21.59,101,2,2,2,2,4,12,,,,,PM,378
+44696,P_hybrid_44696,South Dakota,4 miels southwest of Oacoma,43.72639504,-99.47387606,male,hybrid,1,Mark 12,10.48,13.25,19.97,99,1,0,1,2,2,6,,,,,IH,378
+44697,P_melanocephalus_44697,South Dakota,6 miles southeast of Stamford,43.78955503,-101.2139186,male,melanocephalus,1,Mark 5,9.52,12.73,21.87,102,2,2,2,2,4,12,,,,,PM,246
+44699,P_melanocephalus_44699,South Dakota,9 miles south of Oacoma,43.65264008,-99.46861608,male,melanocephalus,0,Mark 13,10.31,13.55,19.33,104,2,2,2,1,3,10,,,,,OH-M,378
+44700,P_melanocephalus_44700,South Dakota,20 miles west of Platte,43.41272319,-99.16507535,male,melanocephalus,1,Mark 14,9.99,13.07,22.83,101,2,2,2,2,4,12,,,,,PM,425
+44702,P_melanocephalus_44702,South Dakota,20 miles west of Platte,43.40923196,-99.16391546,male,melanocephalus,1,Mark 15,10.43,12.65,21.53,100,2,2,2,1,4,11,,,,,OH-M,425
+44703,P_hybrid_44703,South Dakota,20 miles west of Platte,43.37684068,-99.14481486,male,hybrid,1,Mark 16,10.96,12.9,21.96,101,2,2,2,2,3,11,,,,,OH-M,425
+44704,P_ludovicianus_44704,South Dakota,6 miles north of Bonesteel,43.1793135,-98.94130468,male,ludovicianus,0,Mark 17,9.38,12.43,20.91,106,0,0,0,0,0,0,,,,,PL,456
+44705,P_ludovicianus_44705,South Dakota,6 miles north of Bonesteel,43.1793135,-98.94130468,male,ludovicianus,0,Mark 17,10.16,13.49,19.74,98,0,0,0,0,0,0,,,,,PL,456
+44706,P_ludovicianus_44706,South Dakota,6 miles north of Bonesteel,43.17907998,-98.93724994,male,ludovicianus,0,Mark 18,10.17,12.26,20.07,100,0,0,0,0,2,2,,,,,OH-L,456
+44707,P_hybrid_44707,South Dakota,20 miles west of Pickstown,43.08797213,-98.76794505,male,hybrid,0,Mark 19,10.64,12.77,21.56,99,0,0,0,0,0,0,,,,,PL,467
+44708,P_hybrid_44708,South Dakota,20 miles west of Pickstown,43.0861339,-98.7686001,male,hybrid,0,Mark 20,10.29,12.48,20.25,94,1,0,0,0,0,1,,,,,PL,467
+44709,P_hybrid_44709,South Dakota,1 mile south of Pickstown,43.05214729,-98.53837981,male,hybrid,0,Mark 21,9.12,12.18,20.94,99,1,1,1,1,0,4,,,,,OH-L,486
+44710,P_ludovicianus_44710,South Dakota,1.5 miles west-northwest of Greenwood,42.96413337,-98.46748332,male,ludovicianus,0,Mark 22,9.69,12.13,21.45,97,0,1,1,0,1,3,,,,,OH-L,500
+44711,P_ludovicianus_44711,South Dakota,1.5 miles west-northwest of Greenwood,42.96252555,-98.46502449,male,ludovicianus,0,Mark 23,9.3,12.07,19.35,96,0,0,0,0,0,0,,,,,PL,500
+44712,P_hybrid_44712,South Dakota,1.5 miles west-northwest of Greenwood,42.9651744,-98.45587883,male,hybrid,0,Mark 24,9.22,11.18,22.09,97,0,1,1,1,2,5,,,,,IH,500
+44713,P_ludovicianus_44713,South Dakota,1.5 miles west-northwest of Greenwood,42.96586121,-98.45539327,male,ludovicianus,0,Mark 25,9.62,12.69,20.64,100,0,0,0,0,0,0,,,,,PL,500
+44714,P_ludovicianus_44714,South Dakota,1.5 miles west-northwest of Greenwood,42.95152464,-98.45596014,female,ludovicianus,0,Mark 26,10.22,11.19,21.06,101,,,,,,,0,0,0,0,PL,500
+44715,P_ludovicianus_44715,South Dakota,1.5 miles west-northwest of Greenwood,42.93722126,-98.43894093,female,ludovicianus,0,Mark 27,9.84,12.55,20.99,97,,,,,,,1,0,1,2,OH-L,500
+44716,P_ludovicianus_44716,South Dakota,1.5 miles west-northwest of Greenwood,42.93722126,-98.43894093,male,ludovicianus,0,Mark 27,9.4,10.81,20.69,97,0,0,0,0,1,1,,,,,OH-L,500
+44717,P_ludovicianus_44717,South Dakota,1.5 miles west-northwest of Greenwood,42.93604813,-98.43648185,female,ludovicianus,0,Mark 28,9.6,12.8,20.12,101,,,,,,,1,2,3,6,OH-M,500
+44718,P_ludovicianus_44718,South Dakota,1.5 miles west-northwest of Greenwood,42.93280466,-98.43352471,male,ludovicianus,0,Mark 29,9.99,12.69,21.53,97,0,0,0,0,0,0,,,,,PL,500
+44719,P_ludovicianus_44719,South Dakota,1.5 miles west-northwest of Greenwood,42.93295378,-98.43113453,male,ludovicianus,0,Mark 30,9.67,12.13,19.04,103,0,0,0,0,0,0,,,,,PL,500
+44720,P_ludovicianus_44720,South Dakota,1.5 miles west-northwest of Greenwood,42.9361653,-98.43784357,male,ludovicianus,0,Mark 31,9.52,12.27,20.44,100,0,0,0,0,0,0,,,,,PL,500
+44721,P_ludovicianus_44721,South Dakota,5 miles south of Vermillion,42.74104457,-96.95317836,male,ludovicianus,0,Mark 32,9.72,12.38,19.9,93,,,,,,0,1,1,0,2,OH-L,623
+44722,P_ludovicianus_44722,South Dakota,5 miles south of Vermillion,42.74104457,-96.95317836,male,ludovicianus,0,Mark 32,10.36,11.86,20.1,95,0,0,0,0,0,0,,,,,PL,623
+44723,P_ludovicianus_44723,South Dakota,5 miles south of Vermillion,42.74104457,-96.95317836,male,ludovicianus,0,Mark 33,9.46,12.94,19.95,99,0,0,0,0,0,0,,,,,PL,623
+44726,P_ludovicianus_44726,South Dakota,5 miles south of Vermillion,42.74005333,-96.95494199,male,ludovicianus,0,Mark 34,10.08,12.35,19.73,99,0,0,0,0,0,0,,,,,PL,623
+44727,P_ludovicianus_44727,South Dakota,5 miles south of Vermillion,42.741579,-96.95389383,male,ludovicianus,0,Mark 35,10.77,12.05,21.75,100,0,0,0,0,0,0,,,,,PL,623
+44729,P_ludovicianus_44729,South Dakota,5 miles south of Vermillion,42.74206197,-96.95240772,male,ludovicianus,0,Mark 36,10.7,12.53,18.25,99,0,0,0,0,0,0,,,,,PL,623
+44730,P_ludovicianus_44730,South Dakota,5 miles south of Vermillion,42.74241518,-96.95320258,female,ludovicianus,0,Mark 37,10.51,13.06,19.92,96,,,,,,,1,0,0,1,OH-L,623
+44731,P_ludovicianus_44731,South Dakota,5 miles south of Vermillion,42.74241518,-96.95320258,male,ludovicianus,0,Mark 37,10.16,12.59,18.87,97,1,1,1,1,0,4,,,,,OH-L,623
+44732,P_ludovicianus_44732,South Dakota,5 miles south of Vermillion,42.74435911,-96.9522778,male,ludovicianus,0,Mark 38,9.2,12.93,20.54,97,0,0,0,0,0,0,,,,,PL,623
+44733,P_ludovicianus_44733,South Dakota,5 miles south of Vermillion,42.74384229,-96.95193591,male,ludovicianus,0,Mark 39,10.88,14.5,22.46,102,0,0,0,0,0,0,,,,,PL,623
+44734,P_ludovicianus_44734,South Dakota,12 miles east-southeast of Vermillion,42.70659462,-96.801927,male,ludovicianus,0,Mark 40,10.01,12.44,21.18,101,0,0,0,0,0,0,,,,,PL,636
+44737,P_ludovicianus_44737,South Dakota,12 miles east-southeast of Vermillion,42.70697189,-96.80296359,male,ludovicianus,0,Mark 42,11.09,12.88,20.2,98,0,0,0,0,0,0,,,,,PL,636
+44738,P_ludovicianus_44738,South Dakota,12 miles east-southeast of Vermillion,42.7071412,-96.80413496,male,ludovicianus,0,Mark 43,9.51,12.91,19.25,97,0,0,0,0,0,0,,,,,PL,636
+44739,P_ludovicianus_44739,South Dakota,12 miles east-southeast of Vermillion,42.70778627,-96.80507029,male,ludovicianus,0,Mark 44,9.73,13.57,20.13,96,0,0,0,0,0,0,,,,,PL,636
+44740,P_ludovicianus_44740,South Dakota,"Newton Hills, 3 miles sout of Canton",43.2235438,-96.56703145,male,ludovicianus,0,Mark 45 Newton Hills,10.39,12.85,20.95,99,0,0,0,0,0,0,,,,,PL,636
+44741,P_ludovicianus_44741,South Dakota,"Newton Hills, 3 miles sout of Canton",43.2235438,-96.56703145,male,ludovicianus,0,Mark 45 Newton Hills,9.83,12.86,20.52,96,0,0,0,0,0,0,,,,,PL,636
+44742,P_ludovicianus_44742,South Dakota,"Newton Hills, 3 miles sout of Canton",43.22564824,-96.56775624,male,ludovicianus,0,Mark 46,9.2,13.08,21.84,98,0,0,0,0,0,0,,,,,PL,636
+44743,P_ludovicianus_44743,South Dakota,"Newton Hills, 3 miles sout of Canton",43.22564824,-96.56775624,male,ludovicianus,0,Mark 46,9.77,12.7,19.55,100,0,0,0,0,0,0,,,,,PL,636
+44744,P_ludovicianus_44744,South Dakota,"Newton Hills, 3 miles sout of Canton",43.22529662,-96.56684202,male,ludovicianus,0,Mark 47,9.67,13.59,20.61,99,0,0,0,0,0,0,,,,,PL,636
+44745,P_ludovicianus_44745,South Dakota,"Newton Hills, 3 miles sout of Canton",43.22529662,-96.56684202,male,ludovicianus,0,Mark 47,10.24,12.15,20.29,97,0,1,1,0,0,2,,,,,OH-L,636
+44746,P_ludovicianus_44746,South Dakota,"Newton Hills, 3 miles sout of Canton",43.22491994,-96.56480136,male,ludovicianus,0,Mark 48,10.07,12.51,20.21,97,1,1,1,1,1,5,,,,,IH,636
+44747,P_ludovicianus_44747,South Dakota,"Newton Hills, 3 miles sout of Canton",43.2238178,-96.56457849,male,ludovicianus,0,Mark 49 Lincoln Co.,9.93,13.81,21,97,0,0,0,0,0,0,,,,,PL,636
+44748,P_ludovicianus_44748,South Dakota,"Newton Hills, 3 miles sout of Canton",43.2238178,-96.56457849,male,ludovicianus,0,Mark 49 Lincoln Co.,10.51,12.55,20.97,95,0,0,0,1,0,1,,,,,PL,636
+44749,P_ludovicianus_44749,South Dakota,"Newton Hills, 3 miles sout of Canton",43.22350432,-96.56356612,female,ludovicianus,0,Mark 50 Lincoln Co.,10.42,13.9,21.64,96,,,,,,,0,1,1,2,OH-L,636
+44752,P_melanocephalus_44752,South Dakota,20 miles west-northwest of Pickstown,43.16872247,-98.81443301,male,melanocephalus,1,Mark 51 N. Wheeler,9.99,14.3,20.65,98,2,2,2,1,4,11,,,,,PM,460
+44753,P_ludovicianus_44753,South Dakota,21 miles west-northwest of Pickstown,43.16746593,-98.81459964,male,ludovicianus,0,Mark 52  N. Wheeler,10.44,13.41,20.23,96,0,0,0,0,0,0,,,,,PL,460
+44754,P_ludovicianus_44754,South Dakota,22 miles west-northwest of Pickstown,43.16900209,-98.80748198,male,ludovicianus,0,Mark 53  N. Wheeler,10.13,12.88,21.49,96,1,1,1,0,0,3,,,,,OH-L,460
+44760,P_melanocephalus_44760,South Dakota,20 miles west of Platte,43.3744147,-99.16500041,male,melanocephalus,1,Mark 56 Gregory Co.,10.88,13.25,21.85,103,2,2,2,2,4,12,,,,,PM,425
+44761,P_ludovicianus_44761,South Dakota,20 miles west of Platte,43.37052483,-99.1657107,male,ludovicianus,0,Mark 59 Gregory Co.,10.29,13.71,19.69,99,0,0,0,0,0,0,,,,,PL,425
+44762,P_hybrid_44762,South Dakota,20 miles west of Platte,43.37873968,-99.16284291,male,hybrid,1,Mark 60 Gregory Co.,9.93,13.41,21.4,96,2,2,2,2,3,11,,,,,OH-M,425
+44763,P_melanocephalus_44763,South Dakota,30 miles north-notheast ofGregory,43.46130554,-99.33812443,male,melanocephalus,1,Mark 61 Gregory Co.,9.19,12.91,20.23,97,2,2,2,2,4,12,,,,,PM,410
+44764,P_melanocephalus_44764,South Dakota,30 miles north-notheast ofGregory,43.45863489,-99.3343431,male,melanocephalus,1,Mark 62 Gregory Co.,10.4,12.82,19.92,100,2,2,2,2,4,12,,,,,PM,410
+44765,P_melanocephalus_44765,South Dakota,30 miles north-notheast ofGregory,43.45776167,-99.32953256,male,melanocephalus,1,Mark 63 Gregory Co.,9.99,13.05,20.93,98,2,2,2,1,4,11,,,,,PM,410
+44766,P_melanocephalus_44766,South Dakota,6 miles south of Oacoma,43.70659824,-99.44252925,male,melanocephalus,1,Mark 64 Lyman Co.,10.77,14.38,23.48,103,2,2,2,2,4,12,,,,,PM,378
+44769,P_melanocephalus_44769,South Dakota,6 miles south of Oacoma,43.70450126,-99.4414966,male,melanocephalus,1,Mark 66 Lyman Co.,10.31,13.8,22.75,98,2,2,2,1,4,11,,,,,PM,378
+44770,P_melanocephalus_44770,South Dakota,6 miles south of Oacoma,43.70668609,-99.44167363,male,melanocephalus,1,Mark 67 Lyman Co.,9.47,12.88,20.9,95,2,2,2,2,4,12,,,,,PM,378
+44771,P_hybrid_44771,South Dakota,6 miles south of Oacoma,43.70913813,-99.43407476,male,hybrid,0,Mark 68 Lyman Co.,11.56,13.49,22.36,104,1,1,2,1,1,6,,,,,IH,378
+44772,P_melanocephalus_44772,South Dakota,12 miles south of Kennebec,43.7387793,-99.76602503,male,melanocephalus,1,Mark 69 Lyman Co.,10.13,13.01,21.24,102,2,2,2,2,4,12,,,,,PM,354
+44773,P_melanocephalus_44773,South Dakota,12 miles south of Kennebec,43.74213701,-99.76439936,male,melanocephalus,1,Mark 70 Lyman Co.,10.16,13.03,21.69,101,2,2,2,2,4,12,,,,,PM,354
+44774,P_melanocephalus_44774,South Dakota,12 miles south of Kennebec,43.74344576,-99.76252961,male,melanocephalus,1,Mark 71 Lyman Co.,9.8,12.36,19.74,100,2,2,2,2,4,12,,,,,PM,354
+44775,P_ludovicianus_44775,South Dakota,12 miles south of Kennebec,43.74630835,-99.75561362,male,ludovicianus,0,Mark 72 Lyman Co.,10.58,12.43,20.67,98,0,0,0,0,0,0,,,,,PL,354
+44776,P_melanocephalus_44776,South Dakota,12 miles south of Kennebec,43.74630835,-99.75561362,female,melanocephalus,1,Mark 72 Lyman Co.,10.54,14.38,21.62,103,,,,,,,3,1,3,7,PM,354
+44777,P_melanocephalus_44777,South Dakota,12 miles south of Kennebec,43.74690623,-99.75600002,male,melanocephalus,1,Mark 73 Lyman Co.,10.88,13.8,23.64,106,2,2,2,2,4,12,,,,,PM,354
+44778,P_melanocephalus_44778,South Dakota,12 miles south of Kennebec,43.74748508,-99.75585351,male,melanocephalus,1,Mark 74 Lyman Co.,9.74,12.19,22.09,98,2,2,2,2,4,12,,,,,PM,354
+44779,P_melanocephalus_44779,South Dakota,12 miles south of Kennebec,43.74434933,-99.75976819,male,melanocephalus,1,Mark 75  Lyman Co,11.16,13.77,22.33,100,2,2,2,2,4,12,,,,,PM,354
+44780,P_melanocephalus_44780,South Dakota,11 miles south of Murdo,43.72558434,-100.7038414,male,melanocephalus,1,Mark 76 Jones Co.,9.62,13.45,21.55,100,2,2,2,2,4,12,,,,,PM,277
+44781,P_hybrid_44781,South Dakota,11 miles south of Murdo,43.72568191,-100.7010045,male,hybrid,1,Mark 77 Jones Co.,11.56,12.8,21.52,102,2,2,2,2,4,12,,,,,PM,277
+44782,P_melanocephalus_44782,South Dakota,11 miles south of Murdo,43.72607192,-100.7006013,male,melanocephalus,1,Mark 78 Jones Co.,10.13,12.31,21.16,102,2,2,2,2,4,12,,,,,PM,277
+44784,P_melanocephalus_44784,South Dakota,11 miles south of Murdo,43.72694883,-100.7030247,male,melanocephalus,1,Mark 79 Jones Co.,10.19,13.31,22.11,100,2,2,2,2,4,12,,,,,PM,277
+44786,P_melanocephalus_44786,South Dakota,11 miles south of Murdo,43.72019922,-100.7068559,male,melanocephalus,1,Mark 80 Jones Co.,9.94,13.3,21.63,102,2,2,2,2,4,12,,,,,PM,277
+44787,P_melanocephalus_44787,South Dakota,11 miles south of Murdo,43.7204718,-100.7055192,male,melanocephalus,1,Mark 81 Jones Co.,9.76,13.05,20.37,103,2,2,2,2,4,12,,,,,PM,277
+44788,P_melanocephalus_44788,South Dakota,11 miles south of Murdo,43.723008,-100.6987319,male,melanocephalus,1,Mark 82 Jones Co.,10.16,13.67,21.44,105,2,2,2,2,4,12,,,,,PM,277
+44789,P_melanocephalus_44789,South Dakota,11 miles south of Murdo,43.723008,-100.6987319,male,melanocephalus,1,Mark 82 Jones Co.,9.24,13.24,21.25,100,2,2,2,2,4,12,,,,,PM,277
+44790,P_melanocephalus_44790,South Dakota,11 miles south of Murdo,43.7245045,-100.6981145,male,melanocephalus,1,Mark 83 Jones Co.,10.8,13.75,21.47,102,2,2,2,2,4,12,,,,,PM,277
+44791,P_melanocephalus_44791,South Dakota,11 miles south of Murdo,43.72580772,-100.700198,male,melanocephalus,1,Mark 84 Jones Co.,10.09,13.29,19.97,100,2,2,2,2,4,12,,,,,PM,277
+44792,P_melanocephalus_44792,South Dakota,11 miles south of Murdo,43.72632673,-100.7012795,male,melanocephalus,1,Mark 85 Jones Co.,9.63,13.12,20.76,100,2,2,2,2,4,12,,,,,PM,277
+44793,P_melanocephalus_44793,South Dakota,11 miles south of Murdo,43.72064388,-100.7064585,male,melanocephalus,1,Mark 86 Jones Co.,9.91,13.7,22.43,97,2,2,2,2,4,12,,,,,PM,277
+44794,P_melanocephalus_44794,South Dakota,14 miles south of Presho,43.68593551,-100.0865436,male,melanocephalus,1,Mark 87 Lyman Co.,10.12,13.19,23.01,103,2,2,2,2,4,12,,,,,PM,327
+44795,P_melanocephalus_44795,South Dakota,14 miles south of Presho,43.68626785,-100.0848705,male,melanocephalus,1,Mark 88 Lyman Co.,10.22,13.6,22.87,102,2,2,2,2,4,12,,,,,PM,327
+44798,P_melanocephalus_44798,South Dakota,14 miles south of Presho,43.69083364,-100.0847738,male,melanocephalus,1,Mark 91 Lyman Co.,10.82,12.89,20.08,101,2,2,2,2,4,12,,,,,PM,327
+44799,P_melanocephalus_44799,South Dakota,14 miles south of Presho,43.69083364,-100.0847738,male,melanocephalus,1,Mark 91 Lyman Co.,11.07,13.56,21.74,100,2,2,2,2,4,12,,,,,PM,327
+44801,P_melanocephalus_44801,South Dakota,4 miles east of Midland,44.0870364,-101.0643814,male,melanocephalus,1,Mark 92 Haakon Co.,9.84,12.75,19.4,99,2,2,2,2,4,12,,,,,PM,246
+44802,P_melanocephalus_44802,South Dakota,4 miles east of Midland,44.08609578,-101.0681841,male,melanocephalus,1,Mark 93 Haakon Co.,10.38,12.9,22.13,102,2,2,2,2,4,12,,,,,PM,246
+44803,P_melanocephalus_44803,South Dakota,4 miles east of Midland,44.08487362,-101.0694181,male,melanocephalus,1,Mark 94 Haakon Co.,10.17,12.81,23.23,102,2,2,2,2,4,12,,,,,PM,246
+44804,P_melanocephalus_44804,South Dakota,4 miles east of Midland,44.0834155,-101.0701267,male,melanocephalus,1,Mark 95 Haakon Co.,10.02,13.18,22.85,102,2,2,2,2,4,12,,,,,PM,246
+44805,P_melanocephalus_44805,South Dakota,4 miles east of Midland,44.08443281,-101.0711539,male,melanocephalus,1,Mark 96 Haakon Co.,9.93,13.75,22.73,102,2,2,2,2,4,12,,,,,PM,246
+44806,P_melanocephalus_44806,South Dakota,4 miles east of Midland,44.08415663,-101.0724299,male,melanocephalus,1,Mark 97 Haakon Co.,9.66,13.22,20.59,106,2,2,2,2,4,12,,,,,PM,246
+44808,P_melanocephalus_44808,South Dakota,4 miles east of Midland,44.08535264,-101.0756057,male,melanocephalus,1,Mark 99 Haakon Co.,9.72,14.28,21.15,101,2,2,2,2,4,12,,,,,PM,246
+44809,P_melanocephalus_44809,South Dakota,4 miles east of Midland,44.08113361,-101.0813249,male,melanocephalus,1,Mark 100 Haakon Co.,9.85,13.35,22.52,100,2,2,2,2,4,12,,,,,PM,246
+44810,P_melanocephalus_44810,South Dakota,4 miles east of Midland,44.08113361,-101.0813249,male,melanocephalus,1,Mark 100 Haakon Co.,9.91,12.93,23.69,99,2,2,2,2,4,12,,,,,PM,246
+44836,P_melanocephalus_44836,South Dakota,2 miles south of Spearfish,44.44825971,-103.8687063,male,melanocephalus,1,Mark 102 Lawrence Co.,9.88,12.7,23.32,105,2,2,2,2,4,12,,,,,PM,0
+44837,P_melanocephalus_44837,South Dakota,2 miles south of Spearfish,44.44823004,-103.8680983,male,melanocephalus,1,Mark 101 Lawrence Co.,10.61,13.72,22.66,106,2,2,2,2,4,12,,,,,PM,0
+44840,P_melanocephalus_44840,South Dakota,2 miles south of Spearfish,44.44782528,-103.8700063,male,melanocephalus,1,Mark 103 Lawrence Co.,9.44,13.71,21.56,102,2,2,2,2,4,12,,,,,PM,0
+44842,P_melanocephalus_44842,South Dakota,2 miles south of Spearfish,44.44524919,-103.8725671,male,melanocephalus,1,Mark 104  Lawrence Co.,10.89,14.17,22.53,102,2,2,2,2,4,12,,,,,PM,0
+44843,P_melanocephalus_44843,South Dakota,2 miles south of Spearfish,44.44673002,-103.8719985,male,melanocephalus,1,Mark 105  Lawrence Co.,11.13,14.95,21.41,100,2,2,2,2,4,12,,,,,PM,0
+44844,P_melanocephalus_44844,South Dakota,2 miles south of Spearfish,44.44705959,-103.8677994,male,melanocephalus,1,Mark 106  Lawrence Co.,10.89,12.93,22.61,104,2,2,2,2,4,12,,,,,PM,0
+44845,P_melanocephalus_44845,South Dakota,2 miles south of Spearfish,44.44705959,-103.8677994,male,melanocephalus,1,Mark 106  Lawrence Co.,10.09,13.69,22.19,107,2,2,2,2,4,12,,,,,PM,0
+44846,P_melanocephalus_44846,South Dakota,2 miles south of Spearfish,44.44308104,-103.8706121,male,melanocephalus,1,Mark 107  Lawrence Co.,9.37,13.2,21.32,106,2,2,2,2,4,12,,,,,PM,0
+44847,P_melanocephalus_44847,South Dakota,2 miles south of Spearfish,44.46058103,-103.8543777,male,melanocephalus,1,Mark 108  Lawrence Co.,9.81,13.02,22.09,103,2,2,2,2,4,12,,,,,PM,0
+44848,P_melanocephalus_44848,South Dakota,2 miles south of Spearfish,44.46058103,-103.8543777,male,melanocephalus,1,Mark 108  Lawrence Co.,10.29,13.35,21.03,105,2,2,2,2,4,12,,,,,PM,0
+44853,P_melanocephalus_44853,South Dakota,"Higgins Gulch, 1.5 miles southwest of Spearfish",44.4833,-103.9333,male,melanocephalus,1,Higgins Gulch Lawrence Co.,10.14,13.14,21.86,101,2,2,2,2,4,12,,,,,PM,0
+44854,P_melanocephalus_44854,South Dakota,"Higgins Gulch, 1.5 miles southwest of Spearfish",44.4833,-103.9333,male,melanocephalus,1,Higgins Gulch Lawrence Co.,10.11,13.01,20.75,101,2,2,2,2,4,12,,,,,PM,0
+45171,P_hybrid_45171,South Dakota,15 miles west-northwest of Pickstown,43.16585694,-98.81456536,male,hybrid,0,Mark 54  N. Wheeler,10.33,12.9,19.96,101,1,1,1,1,1,5,,,,,IH,460
+45173,P_hybrid_45173,South Dakota,16 miles west of Platte,43.3760962,-99.16713042,male,hybrid,1,Mark 55 Gregory Co.,10.48,13.66,20.25,102,2,2,2,2,3,11,,,,,OH-M,425
+45174,P_hybrid_45174,South Dakota,16 miles west of Platte,43.37346654,-99.16558304,male,hybrid,1,Mark 57 Gregory Co.,10.83,12.32,21.08,99,0,0,1,1,4,6,,,,,IH,425
+45175,P_melanocephalus_45175,South Dakota,16 miles west of Platte,43.37310076,-99.16593499,male,melanocephalus,0,Mark 58 Gregory Co.,9.41,12.46,22.31,102,2,2,2,2,4,12,,,,,PM,425
+45200,P_melanocephalus_45200,South Dakota,1 mile east-northeast of Murchison,45.391505,-103.253161,male,melanocephalus,,,,,,,,,,,,,,,,,,
+45232,P_melanocephalus_45232,South Dakota,"Higgins Gulch, 1.5 miles southwest of Spearfish",44.4833,-103.9333,female,melanocephalus,,,,,,,,,,,,,,,,,,
+45709,P_melanocephalus_45709,Colorado,"Franktown, 751 Willow Lake Drive",39.370718,-104.78205,male,melanocephalus,,,,,,,,,,,,,,,,,,
+45926,P_melanocephalus_45926,Colorado,"Franktown, 636 Willow Lake Drive",39.36666667,-104.45,unknown,melanocephalus,,,,,,,,,,,,,,,,,,
+48011,P_melanocephalus_48011,Oregon,1 miles north of Ghilchrist,43.490473,-121.684746,male,melanocephalus,,,,,,,,,,,,,,,,,,
+48012,P_melanocephalus_48012,Oregon,1 miles north of Ghilchrist,43.490473,-121.684746,male,melanocephalus,,,,,,,,,,,,,,,,,,
+48013,P_melanocephalus_48013,Oregon,1 miles north of Ghilchrist,43.490473,-121.684746,male,melanocephalus,,,,,,,,,,,,,,,,,,
+48014,P_melanocephalus_48014,Oregon,1 miles north of Ghilchrist,43.490473,-121.684746,male,melanocephalus,,,,,,,,,,,,,,,,,,

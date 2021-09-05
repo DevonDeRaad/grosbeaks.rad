@@ -14,19 +14,26 @@ library(StAMPP)
 library(adegenet)
 library(ggplot2)
 library(introgress)
+library(ggExtra)
 
 #read vcfR
 vcfR<-read.vcfR("~/Desktop/grosbeaks/grosbeaks.rad/filtered.vcf.gz")
 
 #read locs
-locs<-read.csv("~/Desktop/grosbeaks/grosbeaks.rad/grosbeak.sampling.scheme.csv")
-#locs$species<-sub("._","",locs$sample)
-#locs$species<-sub("_.*","",locs$species)
-#write.csv(locs, "~/Desktop/grosbeaks/grosbeaks.rad/grosbeak.sampling.scheme.csv")
+#locs<-read.csv("~/Desktop/grosbeaks/grosbeaks.rad/grosbeak.sampling.scheme.csv")
+#retain only retained samples
+#locs<-locs[locs$sample %in% colnames(vcfR@gt)[-1],]
+#match order between samples in vcf and locs
+#locs<-locs[match(colnames(vcfR@gt)[-1],locs$sample),]
+
+#read locs
+locs<-read.csv("~/Desktop/grosbeaks/grosbeaks.rad/locs.with.phenotype.csv")
 #retain only retained samples
 locs<-locs[locs$sample %in% colnames(vcfR@gt)[-1],]
 #match order between samples in vcf and locs
 locs<-locs[match(colnames(vcfR@gt)[-1],locs$sample),]
+
+
 ```
 
 ```{r}
@@ -41,11 +48,31 @@ pca.scores<-as.data.frame(pca$scores)
 pca.scores$sex<-locs$sex
 pca.scores$state<-locs$state
 pca.scores$species<-locs$species
+pca.scores$mtdna.type<-locs$mtDNA.type
+pca.scores$local<-locs$distance
+pca.scores$phenotype<-locs$male.total
 
 #ggplot color by species
 ggplot(pca.scores, aes(x=PC1, y=PC2, color=species)) +
   geom_point(cex = 4, alpha=.75)+
   theme_classic()+
+  theme(legend.position = "bottom", legend.key.size = unit(0, 'cm'),
+        legend.title = element_text(size=8), legend.text = element_text(size=6.5))
+
+#ggplot longitude against species
+pca.scores$long<-locs$long
+ggplot(pca.scores, aes(x=long, y=PC1, color=species)) +
+  geom_point(cex = 4, alpha=.75)+
+  theme_classic()+
+  theme(legend.position = "bottom", legend.key.size = unit(0, 'cm'),
+        legend.title = element_text(size=8), legend.text = element_text(size=6.5))
+
+#zoom in on transect
+pca.scores$long<-locs$long
+ggplot(pca.scores, aes(x=long, y=PC1, color=species)) +
+  geom_point(cex = 4, alpha=.75)+
+  theme_classic()+
+  xlim(c(-90,-107))+
   theme(legend.position = "bottom", legend.key.size = unit(0, 'cm'),
         legend.title = element_text(size=8), legend.text = element_text(size=6.5))
 
@@ -63,6 +90,41 @@ ggplot(pca.scores, aes(x=PC1, y=PC2, color=state)) +
   theme(legend.position = "bottom", legend.key.size = unit(0, 'cm'),
         legend.title = element_text(size=8), legend.text = element_text(size=6.5))
 
+#ggplot color by mtDNA haplotype
+ggplot(pca.scores, aes(x=PC1, y=PC2, color=as.factor(mtdna.type))) +
+  geom_point(cex = 4, alpha=.75)+
+  theme_classic()+
+  theme(legend.position = "bottom", legend.key.size = unit(0, 'cm'),
+        legend.title = element_text(size=8), legend.text = element_text(size=6.5))
+
+#ggplot color by locality on transect
+ggplot(pca.scores, aes(x=PC1, y=PC2, color=local)) +
+  geom_point(cex = 4, alpha=.75)+
+  theme_classic()
+
+#zoom in on transect
+ggplot(pca.scores, aes(x=local, y=PC1, color=as.factor(phenotype))) +
+  geom_point(cex = 4, alpha=.75)+
+  theme_classic()
+```
+
+```{r}
+#zoom in on transect
+p<-ggplot(pca.scores, aes(x=phenotype, y=PC1, color=as.factor(mtdna.type)))+
+  scale_color_manual(labels = c("rose-breasted", "black-headed"), values = c("red", "black")) +
+  geom_point(cex = 4, alpha=.75)+
+  theme_classic()+
+  theme(legend.position = "bottom", legend.key.size = unit(0, 'cm'),
+        legend.title = element_text(size=8), legend.text = element_text(size=6.5))
+
+
+ggMarginal(p, type="histogram", fill="lightgrey", size=3,yparams = list(bins=50))
+```
+
+```{r}
+ggMarginal(p, type="histogram", fill="lightgrey", size=3,yparams = list(bins=12))
+#this indicates to me that the relatively clean transition with little intermediacy indicated by phenotype
+#belies the more gradual genomic transition, with some birds significantly mismatched in phenotype and genomic ancestry
 ```
 
 ```{r}
