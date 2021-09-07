@@ -31,14 +31,14 @@ vis_loci(output = m.out, stacks_param = "m")
 
 ```{r}
 #optimize_bigM function will generate summary stats on your 8 iterative runs
-M.out<-optimize_bigM(M1="/Users/devder/Desktop/grosbeaks/M1.vcf",
-           M2="/Users/devder/Desktop/grosbeaks/M2.vcf",
-           M3="/Users/devder/Desktop/grosbeaks/M3.vcf",
-           M4="/Users/devder/Desktop/grosbeaks/M4.vcf",
-           M5="/Users/devder/Desktop/grosbeaks/M5.vcf",
-           M6="/Users/devder/Desktop/grosbeaks/M6.vcf",
-           M7="/Users/devder/Desktop/grosbeaks/M7.vcf",
-           M8="/Users/devder/Desktop/grosbeaks/M8.vcf")
+M.out<-optimize_bigM(M1="/Users/devder/Desktop/grosbeaks/big_M1.vcf",
+           M2="/Users/devder/Desktop/grosbeaks/big_M2.vcf",
+           M3="/Users/devder/Desktop/grosbeaks/big_M3.vcf",
+           M4="/Users/devder/Desktop/grosbeaks/big_M4.vcf",
+           M5="/Users/devder/Desktop/grosbeaks/big_M5.vcf",
+           M6="/Users/devder/Desktop/grosbeaks/big_M6.vcf",
+           M7="/Users/devder/Desktop/grosbeaks/big_M7.vcf",
+           M8="/Users/devder/Desktop/grosbeaks/big_M8.vcf")
 
 #Assigning the output of this function to the variable 'M.out' should generate a list containing four objects of class 'data.frame' with the following characteristics: 'snp' showing the number of non-missing SNPs retained in each sample at each m value, 'loci' showing the number of non-missing loci retained in each sample at each m value, 'snp.R80' showing the total number of SNPs retained at an 80% completeness cutoff, and 'loci.R80' showing the total number of polymorphic loci retained at an 80% completeness cutoff.
 

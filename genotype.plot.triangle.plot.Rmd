@@ -39,6 +39,15 @@ locs<-locs[match(colnames(vcfR@gt)[-1],locs$sample),]
 ```{r}
 #convert vcfr to genlight
 gen<- vcfR2genlight(vcfR)
+
+#make genmat
+gen.mat<-as.matrix(gen)
+#calculate genomewide heterozygosity per sample
+loci<-rowSums(is.na(gen.mat) == FALSE)
+het<-rowSums(gen.mat == 1, na.rm = TRUE)/loci
+#make df
+het.df<-data.frame(id=rownames(gen.mat),het=het)
+locs$het<-het.df$het
 #make pca
 pca<-glPca(gen, nf=6)
 
@@ -106,6 +115,41 @@ ggplot(pca.scores, aes(x=PC1, y=PC2, color=local)) +
 ggplot(pca.scores, aes(x=local, y=PC1, color=as.factor(phenotype))) +
   geom_point(cex = 4, alpha=.75)+
   theme_classic()
+
+#zoom in on transect
+ggplot(pca.scores, aes(x=PC1, y=het, color=as.factor(phenotype))) +
+  geom_point(cex = 4, alpha=.75)+
+  theme_classic()
+
+#zoom in on transect
+ggplot(pca.scores, aes(x=PC1, y=het, color=state)) +
+  geom_point(cex = 4, alpha=.75)+
+  theme_classic()
+
+
+```
+
+```{r}
+no.miss.locs<-locs[is.na(locs$male.total) == FALSE,]
+morph.pca<-prcomp(no.miss.locs[,11:19])
+no.miss.locs$morph.PC1<-morph.pca$x[,1]
+no.miss.locs$morph.PC2<-morph.pca$x[,2]
+
+ggplot(no.miss.locs, aes(x=morph.PC1, y=morph.PC2, color=as.factor(male.total))) +
+  geom_point(cex = 4, alpha=.75)+
+  theme_classic()
+
+ggplot(no.miss.locs, aes(x=morph.PC1, y=morph.PC2, color=as.factor(mtDNA.type))) +
+  geom_point(cex = 4, alpha=.75)+
+  theme_classic()
+
+no.miss.locs$gen.pc1<-pca.scores[is.na(locs$male.total) == FALSE,1]
+
+ggplot(no.miss.locs, aes(x=morph.PC1, y=morph.PC2, color=gen.pc1)) +
+  geom_point(cex = 4, alpha=.75)+
+  theme_classic()
+
+
 ```
 
 ```{r}
@@ -222,8 +266,8 @@ hi.index.sim$sex<-locs$sex
 #calculate mean heterozygosity
 het<-calc.intersp.het(introgress.data=count.matrix)
 
-#make triangle plot colored by species
-plot(x=hi.index.sim$h, y=het, bg=rgb(0,0,0,alpha=0.3), pch=21, cex=2, col=as.factor(locs$species),
+#make triangle plot colored by mtDNA
+plot(x=hi.index.sim$h, y=het, bg=rgb(0,0,0,alpha=0.3), pch=21, cex=2, col=as.factor(locs$mtDNA.type),
      xlab="Hybrid Index", ylab="Interspecific heterozygosity",
      ylim=c(0,1))
 segments(x0 =0, y0 =0, x1 =.5, y1 =1)
@@ -231,7 +275,7 @@ segments(x0 =1, y0 =0, x1 =.5, y1 =1)
 #red = ludovicianus, green = melanocephalus, black = hybrid
 
 #make triangle plot colored by species
-plot(x=hi.index.sim$h, y=het, bg=rgb(0,0,0,alpha=0.3), pch=21, cex=2, col=as.factor(locs$state),
+plot(x=hi.index.sim$h, y=het, bg=rgb(0,0,0,alpha=0.3), pch=21, cex=2, col=as.factor(locs$phenotype),
      xlab="Hybrid Index", ylab="Interspecific heterozygosity",
      ylim=c(0,1))
 segments(x0 =0, y0 =0, x1 =.5, y1 =1)
